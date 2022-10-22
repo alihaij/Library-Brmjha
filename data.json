@@ -1,13 +1,7 @@
-
-
-[       
-    {
-        "id": "0",
-        "author": "Ali",
-        "titile": "Joha",
-        "language":"Arabic",
-        "pages":"666",
-        "year":"1996"
-    }
-]
-
+{
+  "auth": "b",
+  "title": "3",
+  "language": "a",
+  "pages": "a",
+  "year": "a"
+}
