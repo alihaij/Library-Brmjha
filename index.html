@@ -7,6 +7,8 @@
 </head>
 <body>
     <h1>Library</h1>
+
+    <h2>Creat</h2>
     <form action="/" method="post">
         <input type="text"name = "auth" placeholder="Author">
         <input type="text"name = "title" placeholder="Title">
@@ -14,6 +16,24 @@
         <input type="text"name = "pages" placeholder="Pages">
         <input type="text"name = "year" placeholder="year of writing">
         <button type="submit"name= "submit">Create</button>
+    </form>
+    <h2>Read</h2>
+    <a href="/data">data</a>
+
+    <h2>Update</h2>
+    <form action="/" method="post">
+        <input type="text"name = "id" placeholder="ID" required>
+        <input type="text"name = "auth" placeholder="Author">
+        <input type="text"name = "title" placeholder="Title">
+        <input type="text"name = "language" placeholder="Language">
+        <input type="text"name = "pages" placeholder="Pages">
+        <input type="text"name = "year" placeholder="year of writing">
+        <button type="submit"name= "submit">Create</button>
+    </form>
+    <h2>Delete</h2>
+    <form action="">
+        <input type="text"name = "id" placeholder="Enter ID">
+        <button type="submit">Delete</button>
     </form>
 
     

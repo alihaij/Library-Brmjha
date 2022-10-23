@@ -1,3 +1,4 @@
+const uuid = require('uuid')
 const bodyParser = require('body-parser');
 const express = require('express');
 const { readFileSync } = require('fs');
@@ -26,13 +27,14 @@ app.get('/data', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-
+    
+   var id = uuid.v1();
     var auth = req.body.auth;
     var title = req.body.title;
     var language = req.body.language;
     var pages = req.body.pages;
     var year = req.body.year;
-    var arr = { auth, title, language, pages, year };
+    var arr = {id,auth, title, language, pages, year };
     res.send('Author is : ' + auth);
     saveData(arr);
 
@@ -43,9 +45,10 @@ const saveData = (newData) => {
         if (err) {
             console.log(err);
         } else {
-            const informaiton = JSON.parse(data);      
+            const informaiton = JSON.parse(data);   
+               
             informaiton.push(newData);
-            fs.writeFile('./data.json', JSON.stringify(informaiton), (err) => {
+            fs.writeFile('./data.json', JSON.stringify(informaiton,null,2), (err) => {
                 if (err) {
                     console.log(err);
                 }
