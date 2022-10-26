@@ -25,7 +25,12 @@ app.get('/data', function (req, res) {
 
     res.send(booksData());
 });
+app.post('/delete',function (req,res){
+    var deleteId = req.body.id;
 
+    res.send('Successful delete ');
+    deleteData(deleteId)
+});
 app.post('/', function (req, res) {
     
    var id = uuid.v1();
@@ -34,9 +39,9 @@ app.post('/', function (req, res) {
     var language = req.body.language;
     var pages = req.body.pages;
     var year = req.body.year;
-    var arr = {id,auth, title, language, pages, year };
-    res.send('Author is : ' + auth);
-    saveData(arr);
+    var book = {id,auth, title, language, pages, year };
+    res.send('Successful add ');
+    saveData(book);
 
 })
 
@@ -59,9 +64,18 @@ const saveData = (newData) => {
         }
     });
 
+}
 
-    // const jasonData = JSON.stringify(newData, null, 2);
 
+const deleteData = (id) => {
+    fs.readFile('./data.json', 'utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            const informaiton = JSON.parse(data);   
+            console.log(informaiton[0].id) 
+        }
+    });
 
 }
 
